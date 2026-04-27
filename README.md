@@ -17,25 +17,7 @@ The system has three layers:
 1. **Sensor layer** — MAX30101 emits red (660 nm), infrared (940 nm) and green (527 nm) light through a single photodiode aperture. The MAX32664 hub manages the optical front end over an internal I2C bus.
 2. **Microcontroller layer** — A SparkFun RedBoard Qwiic (Arduino-compatible) acts as I2C master, runs `arduino_sensor.ino`, performs the AGC-bypass startup handshake (RSTN/MFIO toggle, mode write, AGC disable, static LED current lock), and forwards raw red/IR/green ADC counts over USB serial at 115 200 baud.
 3. **Host layer (Python)** — A five-stage pipeline consumes the serial stream and converts raw counts into signal-quality metrics:
-arduino_sensor.ino  --USB serial-->  capture_ppg.py    (raw P#.csv)
-|
-v
-clean_ppg.py     (cleaned/)
-|
-v
-filter_ppg.py    (filtered/)
-|
-v
-extract_fiducials.py (fiducials/)
-|
-v
-compute_summary.py  (results/summary.csv)
-|
-v
-three_wavelength_decomposition.py
-|
-v
-SpO2_corrected per participant
+
 ## Installation
 
 ### Hardware required
