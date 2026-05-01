@@ -1,7 +1,7 @@
 """
 clean_ppg.py  —  PPG cleaning stage (pre-filter)
 
-Study: MAX30101 melanin-bias study, AGC bypassed, ~25 Hz sampling.
+Study: MAX30101 melanin-bias study, AGC bypassed, 200 Hz sampling.
 Input CSVs (no header):  timestamp_ms, red, ir, green
 Output CSVs (header):    timestamp_ms, red, ir, green, outlier_flag
 
@@ -14,7 +14,7 @@ What this script does, in order:
      important because P6 has jitter and a gap.
   4. Detect outliers at |x - rolling_mean| > 5 * rolling_std, computed
      independently per LED channel on a centered 51-sample window
-     (~2.04 s @ 25 Hz — larger than one cardiac cycle). Rows are FLAGGED
+     (~2.04 s @ 200 Hz — larger than one cardiac cycle). Rows are FLAGGED
      (outlier_flag = 1) but NOT deleted.
   5. Write cleaned/<same_name>.csv and append a row to cleaning_summary.txt.
 
@@ -37,10 +37,10 @@ OUTPUT_DIR = HERE / "cleaned"
 SUMMARY_PATH = HERE / "cleaning_summary.txt"
 
 TRIM_MS = 2000               # discard first 2 s (bootloader artifacts)
-SAMPLING_HZ = 25             # nominal; used only for window sizing
-ROLL_WINDOW = 51             # centered, ~2.04 s — spans a cardiac cycle
+SAMPLING_HZ = 200             # nominal; used only for window sizing
+ROLL_WINDOW = 409             # centered, ~2.04 s — spans a cardiac cycle
 OUTLIER_Z = 5.0              # |x - local_mean| > 5 * local_std -> flag
-MIN_WINDOW_PERIODS = 11      # ~0.44 s: enough to have a real std
+MIN_WINDOW_PERIODS = 89      # ~0.44 s: enough to have a real std
 
 CHANNELS = ["red", "ir", "green"]
 COLUMNS = ["timestamp_ms"] + CHANNELS
