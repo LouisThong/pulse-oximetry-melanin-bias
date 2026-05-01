@@ -59,7 +59,7 @@ OUT_DIR    = BASE / "results"
 OUT_CSV    = OUT_DIR / "summary.csv"
 FLAG_PATH  = OUT_DIR / "quality_flags.txt"
 
-FS_HZ         = 25.0
+FS_HZ         = 200.0
 CHANNELS      = ["red", "ir", "green"]
 CARDIAC_BAND  = (0.6, 3.3)                 # bandpass cut-offs (Hz)
 HR_SEARCH     = (0.8, 2.5)                 # HR search window (Hz) = 48-150 BPM
