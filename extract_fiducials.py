@@ -158,7 +158,7 @@ def detect_systolic_peaks(ppg: np.ndarray, fs: float) -> np.ndarray:
 
     1. Compute a *hard* refractory period from the maximum plausible heart
        rate: two systolic peaks cannot be closer than one beat-period at
-       HR_MAX_BPM (= 400 ms at 150 BPM = 10 samples at 25 Hz).
+       HR_MAX_BPM (= 400 ms at 150 BPM = 10 samples at 200 Hz).
     2. Use an adaptive amplitude threshold that starts at the 50th-
        percentile of the positive part of the signal.  If this rejects too
        few candidates (implying a noisy detection that picks up dicrotic
