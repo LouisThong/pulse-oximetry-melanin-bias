@@ -19,14 +19,14 @@ void setup() {
 
   // setup(ledBrightness, sampleAverage, ledMode, sampleRate, pulseWidth, adcRange)
   //   ledMode    = 3  -> Red + IR + Green all active
-  //   sampleRate = 100 Hz
+  //   sampleRate = 200 Hz
   //   pulseWidth = 411 us  (18-bit resolution)
   //   adcRange   = 4096 nA
   particleSensor.setup(
       0x1F,   // default LED brightness (applied to Red)
-      4,      // sample averaging
+      1,      // sample averaging
       3,      // LED mode: 3 = Red + IR + Green
-      100,    // sample rate (Hz)
+      200,    // sample rate (Hz)
       411,    // pulse width (us)
       4096    // ADC range (nA)
   );
