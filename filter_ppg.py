@@ -35,7 +35,7 @@ FILT_DIR      = BASE / "filtered"
 PLOT_DIR      = BASE / "plots" / "02_filtered"
 SUMMARY_PATH  = BASE / "filtering_summary.txt"
 
-FS_HZ         = 25.0          # confirmed sampling rate
+FS_HZ         = 200.0          # confirmed sampling rate
 LOW_HZ, HIGH_HZ = 0.6, 3.3    # bandpass cut-offs
 ORDER         = 4             # Butterworth order
 CHANNELS      = ["red", "ir", "green"]
