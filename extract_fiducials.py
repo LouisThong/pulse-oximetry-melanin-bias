@@ -70,7 +70,7 @@ FID_DIR       = BASE / "fiducials"
 PLOT_DIR      = BASE / "plots" / "03_fiducials"
 SUMMARY_PATH  = BASE / "fiducial_summary.txt"
 
-FS_HZ         = 25.0                     # sampling rate (confirmed earlier)
+FS_HZ         = 200.0                     # sampling rate (confirmed earlier)
 CHANNELS      = ["red", "ir", "green"]   # order matters for plot colour map
 PRIMARY_CH    = "red"                    # channel used for the 5-s excerpt plot
 
